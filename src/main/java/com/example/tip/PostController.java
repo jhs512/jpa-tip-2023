@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/posts")
 @RequiredArgsConstructor
@@ -15,5 +17,10 @@ public class PostController {
     @GetMapping("/{id}")
     public Post showDetail(@PathVariable Long id) {
         return postService.findById(id).orElse(null);
+    }
+
+    @GetMapping("/findByUsername/{username}")
+    public List<Post> findByUsername(@PathVariable String username) {
+        return postService.findByUsername(username);
     }
 }
