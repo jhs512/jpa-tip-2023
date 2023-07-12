@@ -19,6 +19,11 @@ public class PostController {
         return postService.findById(id).orElse(null);
     }
 
+    @GetMapping("/findWithShareLockById/{id}")
+    public Post findWithShareLockById(@PathVariable Long id) {
+        return postService.findWithShareLockById(id).orElse(null);
+    }
+
     @GetMapping("/findByUsername/{username}")
     public List<Post> findByUsername(@PathVariable String username) {
         return postService.findByUsername(username);
