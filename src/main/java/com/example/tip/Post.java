@@ -3,9 +3,8 @@ package com.example.tip;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Version;
+import lombok.*;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -13,9 +12,13 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class Post {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String username;
+    @Version
+    private Long version;
 }

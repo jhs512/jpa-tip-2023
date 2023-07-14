@@ -29,4 +29,11 @@ public class PostService {
     public Optional<Post> findWithWriteLockById(Long id) {
         return postRepository.findWithWriteLockById(id);
     }
+
+    @Transactional
+    public Post modifyOptimistic(Long id) {
+        Post post = postRepository.findById(id).orElseThrow();
+        post.setUsername(post.getUsername() + "!");
+        return post;
+    }
 }

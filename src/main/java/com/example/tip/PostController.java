@@ -33,4 +33,9 @@ public class PostController {
     public List<Post> findByUsername(@PathVariable String username) {
         return postService.findByUsername(username);
     }
+
+    @GetMapping("/modify/optimistic/{id}")
+    public Post modifyOptimistic(@PathVariable Long id) {
+        return postService.modifyOptimistic(id);
+    }
 }
