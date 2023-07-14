@@ -22,13 +22,11 @@ public class PostService {
         return postRepository.findByUsername(username);
     }
 
-    @SneakyThrows
     public Optional<Post> findWithShareLockById(Long id) {
-
-        postRepository.findWithShareLockById(id);
-
-        Thread.sleep(10000);
-
         return postRepository.findWithShareLockById(id);
+    }
+
+    public Optional<Post> findWithWriteLockById(Long id) {
+        return postRepository.findWithWriteLockById(id);
     }
 }
